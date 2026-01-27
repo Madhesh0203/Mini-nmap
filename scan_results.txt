@@ -1,0 +1,11 @@
+Mini Nmap Scan Report
+Target: 127.0.0.1
+Start Time: 2026-01-27 16:49:31.361775
+--------------------------------------------------
+[OPEN] Port 22 (ssh)
+
+--------------------------------------------------
+Scan Completed
+End Time: 2026-01-27 16:49:31.399676
+Scan Duration: 0:00:00.037901
+Total Open Ports Found: 1
