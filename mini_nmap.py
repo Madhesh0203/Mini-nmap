@@ -66,7 +66,7 @@ def main():
         print(summary)
         file.write(summary)
 
-    print("📁 Results saved to scan_results.txt")
+    print("Results saved to scan_results.txt")
 
 if __name__ == "__main__":
     main()
