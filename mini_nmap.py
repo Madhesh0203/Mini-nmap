@@ -1,9 +1,7 @@
 import socket
 from datetime import datetime
 
-open_ports = []
-
-def scan_port(target, port, file):
+def scan_port(target, port, file, open_ports):
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.settimeout(1)
@@ -45,15 +43,19 @@ def main():
         return
 
     start_time = datetime.now()
+    open_ports = []
 
-    with open("scan_results.txt", "w") as file:
-        header = f"Mini Nmap Scan Report\nTarget: {target}\nStart Time: {start_time}\n"
+    # APPEND MODE (Keeps old data)
+    with open("scan_results.txt", "a") as file:
+        header = "\n" + "=" * 60 + "\n"
+        header += f"Mini Nmap Scan Report\nTarget: {target}\nStart Time: {start_time}\n"
         header += "-" * 50 + "\n"
+
         print(header)
         file.write(header)
 
         for port in range(start_port, end_port + 1):
-            scan_port(target, port, file)
+            scan_port(target, port, file, open_ports)
 
         end_time = datetime.now()
         duration = end_time - start_time
@@ -62,11 +64,12 @@ def main():
         summary += f"Scan Completed\nEnd Time: {end_time}\n"
         summary += f"Scan Duration: {duration}\n"
         summary += f"Total Open Ports Found: {len(open_ports)}\n"
+        summary += "=" * 60 + "\n"
 
         print(summary)
         file.write(summary)
 
-    print("📁 Results saved to scan_results.txt")
+    print("📁 Results appended to scan_results.txt (old data kept)")
 
 if __name__ == "__main__":
     main()
