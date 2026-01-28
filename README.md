@@ -26,7 +26,7 @@ If a connection is successful, the port is marked as open and the associated ser
 ## How to Run
 
 1. Clone the repository
-git clone https://github.com/your-username/mini-nmap.git
+git clone https://github.com/Madhesh0203/Mini-nmap
 cd mini-nmap
 
 
