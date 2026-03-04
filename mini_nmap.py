@@ -31,9 +31,9 @@ def get_port(prompt):
             if 1 <= port <= 65535:
                 return port
             else:
-                print("❌ Port must be between 1 and 65535")
+                print("Port must be between 1 and 65535")
         except ValueError:
-            print("❌ Please enter only a NUMBER")
+            print("Please enter only a NUMBER")
 
 def main():
     target = input("Enter target IP: ")
@@ -41,7 +41,7 @@ def main():
     end_port = get_port("Enter end port: ")
 
     if start_port > end_port:
-        print("❌ Start port must be less than end port")
+        print("Start port must be less than end port")
         return
 
     start_time = datetime.now()
